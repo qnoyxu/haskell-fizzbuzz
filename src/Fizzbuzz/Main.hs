@@ -2,7 +2,7 @@ module Fizzbuzz.Main
     ( run
     ) where
 
-import Control.Monad (forM_)
+import Control.Monad (mapM_)
 
 
 
@@ -12,8 +12,7 @@ run = fizzbuzz 100
 
 fizzbuzz :: Int -> IO ()
 fizzbuzz max = do
-    forM_ [1..max] $ \num -> do
-        putStrLn $ guard num
+    mapM_ (putStrLn . guard) [1..max]
 
 
 guard :: Int -> String
